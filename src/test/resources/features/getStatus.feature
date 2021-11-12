@@ -3,6 +3,7 @@ Feature: Validación de API
   Yo como usuario quiero poder conocer mi ubicación
   para poder saber la hora y el lugar donde me encuentro
 
+  @signup
   Scenario: Respuesta exitosa de API
 
     Given el Tester1 quiere conocer las caracteristicas la ubicicacion
