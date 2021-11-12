@@ -10,16 +10,16 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class GetLocatio implements Task {
     
-    private final int lat, lng;
+    private final float lat, lng;
     private final String uss;
 
-    public GetLocatio(int lat, int lng, String uss) {
+    public GetLocatio(float lat, float lng, String uss) {
         this.lat = lat;
         this.lng =lng;
         this.uss = uss;
     }
 
-    public static Performable header(int lat, int lng, String uss){
+    public static Performable header(float lat, float lng, String uss){
         return instrumented(GetLocatio.class, lat, lng, uss);
 
     }
