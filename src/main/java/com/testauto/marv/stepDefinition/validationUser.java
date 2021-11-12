@@ -1,6 +1,8 @@
 package com.testauto.marv.stepDefinition;
 
 import com.testauto.marv.models.body;
+import com.testauto.marv.models.bodyKO;
+import com.testauto.marv.questions.GetKoResponse;
 import com.testauto.marv.questions.GetResponse;
 import com.testauto.marv.questions.ResponseCode;
 import com.testauto.marv.tasks.GetLocatio;
@@ -58,10 +60,10 @@ public class validationUser {
                 seeThat("El codigo de respuesta", ResponseCode.was(), equalTo( 401))
         );
 
-        body data = new GetResponse().answeredBy(Tester1);
+        bodyKO data = new GetKoResponse().answeredBy(Tester1);
 
         Tester1.should(
-                seeThat( "El mensaje de error es", act -> data.getCountryName(), equalTo("user does not exist."))
+                seeThat( "El mensaje de error es", act -> data.getStatus().getMessage(), equalTo("user does not exist."))
         );
         throw new io.cucumber.java.PendingException();
     }
@@ -81,10 +83,10 @@ public class validationUser {
                 seeThat("El codigo de respuesta", ResponseCode.was(), equalTo( 401))
         );
 
-        body data = new GetResponse().answeredBy(Tester1);
+        bodyKO data = new GetKoResponse().answeredBy(Tester1);
 
         Tester1.should(
-                seeThat( "El mensaje de error es", act -> data.getCountryName(), equalTo("invalid user"))
+                seeThat( "El mensaje de error es", act -> data.getStatus().getMessage(), equalTo("invalid user"))
         );
         throw new io.cucumber.java.PendingException();
     }
