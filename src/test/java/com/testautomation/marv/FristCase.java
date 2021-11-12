@@ -1,6 +1,8 @@
 package com.testautomation.marv;
 
 import com.testauto.marv.models.body;
+import io.cucumber.junit.CucumberOptions;
+import net.serenitybdd.cucumber.CucumberWithSerenity;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
@@ -14,7 +16,8 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.equalTo;
 
-@RunWith(SerenityRunner.class)
+@RunWith(CucumberWithSerenity.class)
+@CucumberOptions(features="src/test/resources/features")
 public class FristCase {
 
     private static final String restApiUrl = "http://api.geonames.org";
